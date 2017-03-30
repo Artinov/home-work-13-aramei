@@ -3,15 +3,12 @@ var port = 3000;
 
 var server = http.createServer(function(request, response) {
     var regExp = /(\/|\*|\+|\-)/g;
-    var parsedArray = request.url.split("/")[1].split(regExp);
+    var parsedArray = request.url.substring(1).split(regExp);
 
     var a = parseInt(parsedArray[0]);
     var b = parseInt(parsedArray[2]);
     var operand = parsedArray[1];
 
-    var result = "";
-
-    console.log(operand);
     switch(operand) {
     	case "+":
     		result = a + b;
